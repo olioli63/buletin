@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vao Note{% endblock %}
+
+{% block body %}
+    <h1>Create Vao Note</h1>
+
+{# id eleve:{{eleve.id}} #}
+    {{ include('note/_form.html.twig') }}
+
+    <a href="{{ path('note') }}">back to list</a>
+{% endblock %}

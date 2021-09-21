@@ -1,0 +1,81 @@
+{# {% extends 'base.html.twig' %}
+
+{% block title %}Hello NoteController!{% endblock %}
+
+{% block body %}
+Liste note <br>
+id Fiche Inscription:{{ficheInscription.id}}
+ <h1>Details</h1>
+    {% include "note/_form.html.twig" %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Id matiere</th>
+                <th>Id fiche</th>
+                <th>Valeur</th>
+                <th>Observation</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+            {% for note in notes %}
+            <tr>
+                <td>{{note.id}}</td>
+                <td>{{note.idMatiere}}</td>
+                <td>{{note.Id_Fiche_Inscription}}</td>
+                <td>{{note.Valeur}}</td>
+                <td>{{note.Observation}}</td>
+                <td>Method</td>
+            </tr>
+            {% else %}
+                <tr>
+                    <td>Liste Vide</td>
+                </tr>
+            {% endfor %}
+            
+    </table>
+{% endblock %} #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Eleve index{% endblock %}
+
+{% block body %}
+    <h1>Note index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Matiere</th>
+                <th>Valeur</th>
+                <th>Observation</th>
+                <th>Eleve</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for note in notes %}
+            <tr>
+                <td>{{ note.id }}</td>
+                <td>{{ note.matiere}}</td>
+                <td>{{ note.Valeur}}</td>
+                <td>{{ note.Observation }}</td>
+                <td>{{ note.FicheInscription}}</td>
+                <td>
+                    {# <a href="{{ path('note_show', {'id': note.id}) }}">show</a>
+                    <a href="{{ path('note_edit', {'id': note.id}) }}">edit</a> #}
+                    {# <a href="{{ path('note_edit', {'id': eleve.id}) }}">Notes</a> #}
+                    {# <a href="{{ path('note') }}">Notes</a> #}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('note_vao') }}">Create new</a>
+{% endblock %}
+

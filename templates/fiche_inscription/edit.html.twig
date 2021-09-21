@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit FicheInscription{% endblock %}
+
+{% block body %}
+    <h1>Edit FicheInscription</h1>
+
+    {{ include('fiche_inscription/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('fiche_inscription_index') }}">back to list</a>
+
+    {{ include('fiche_inscription/_delete_form.html.twig') }}
+{% endblock %}

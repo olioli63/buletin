@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Eleve{% endblock %}
+
+{% block body %}
+    <h1>Eleve</h1>
+
+    <table class="table">
+    <thead>
+        <tr>
+            <th colspan="2"><h5>Profil de {{ eleve.Prenom }} {{ eleve.Nom }}</h5></th>
+            <th colspan="2"><h5>Note de {{ eleve.Prenom }} {{ eleve.Nom }}</h5></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><img src="{{ asset('build/images/user.jpg') }}" alt=""></td>
+            <td>                    
+                    <div>Id: {{ eleve.id }}</div>
+                    <div>Nom: {{ eleve.Nom }}</div>
+                    <div>Prenom: {{ eleve.Prenom }}</div>
+                    <div>Adresse: {{ eleve.Adresse }}</div>
+                    <div>Sexe: {{ eleve.Sexe }}</div>
+                    <div>Contact: {{ eleve.Contact }}</div>
+                    <a href="{{ path('eleve_index') }}">back to list Eleve</a>
+
+                    <a href="{{ path('eleve_edit', {'id': eleve.id}) }}">edit Eleve</a>
+
+                    {{ include('eleve/_delete_form.html.twig') }}
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+       {# <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ eleve.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ eleve.Nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ eleve.Prenom }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ eleve.Adresse }}</td>
+            </tr>
+            <tr>
+                <th>Sexe</th>
+                <td>{{ eleve.Sexe }}</td>
+            </tr>
+            <tr>
+                <th>Contact</th>
+                <td>{{ eleve.Contact }}</td>
+            </tr>
+        </tbody>
+    </table> #}
+
+
+{% endblock %}

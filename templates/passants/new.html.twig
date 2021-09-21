@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Passants{% endblock %}
+
+{% block body %}
+    <h1>Create new Passants</h1>
+
+    {{ include('passants/_form.html.twig') }}
+
+    <a href="{{ path('passants_index') }}">back to list</a>
+{% endblock %}

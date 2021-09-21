@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ClasseController!{% endblock %}
+
+{% block body %}	
+	<h1>Produit index</h1>
+	<br>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Niveau</th>
+				<th>Section</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for classe in classes %}
+				<tr>
+					<td>{{ classe.id }}</td>
+					<td>{{ classe.Niveau }}</td>
+					<td>{{ classe.Section}}</td>
+					<td>
+						<a href="{{ path('classe_show', {'id': classe.id}) }}">show</a>
+						<a href="{{ path('classe_edit', {'id': classe.id}) }}">edit</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="4">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

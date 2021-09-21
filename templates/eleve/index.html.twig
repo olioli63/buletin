@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Eleve index{% endblock %}
+
+{% block body %}
+    <h1>Eleve index</h1>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-4">a</div>
+            <div class="col-4">b</div>
+            <div class="col-4">c</div>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Adresse</th>
+                <th>Sexe</th>
+                <th>Contact</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for eleve in eleves %}
+            <tr>
+                <td>{{ eleve.id }}</td>
+                <td>{{ eleve.Nom }}</td>
+                <td>{{ eleve.Prenom }}</td>
+                <td>{{ eleve.Adresse }}</td>
+                <td>{{ eleve.Sexe }}</td>
+                <td>{{ eleve.Contact }}</td>
+                <td>
+                    <a href="{{ path('eleve_show', {'id': eleve.id}) }}">show</a>
+                    <a href="{{ path('eleve_edit', {'id': eleve.id}) }}">edit</a>
+                    {# <a href="{{ path('note_edit', {'id': eleve.id}) }}">Notes</a> #}
+                    {# <a href="{{ path('note') }}">Notes</a> #}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('eleve_new') }}">Create new</a>
+{% endblock %}
